@@ -1,0 +1,28 @@
+­Cílem zadání je navržení a implementace tříd (např. Wallet, Bank, Money, Operation), rozhraní a unit testů pro podporu více měn v hypotetickém systému (eshopu). 
+Řešení by mělo umět provádět:
+    1. základní operace s částkami (sčítání, odčítání, násobení, dělení) např.:
+        a. 100 CZK + 1 EUR = 126 CZK při kurzu 26 CZK za 1 EUR
+        b. 100 CZK * 5 = 500 CZK
+    2. porovnání částek
+    3. zaokrouhlování částek
+    4. směna měny
+Cele řešení musí být pokryto unit testy. Výsledný kód musí být v Java 17.
+Není potřeba implementovat aplikaci, která by s navrženým řešením pracovala, jenom třídy a unit testy pro práci s měnami.
+Příkladem použití tohoto řešeni může být hypotetický eshop, v rámci kterého existuje systém generování reportů.
+Jeden z takových reportu může vypadat takto:
+Produkt
+Prodáno kusů
+Cena za kus
+Celkem
+Telefon A
+15
+35 999 CZK
+539 985 CZK
+Modem B
+30
+178 EUR
+5 340 EUR
+Celkem
+678 825 CZK
+Kde kurz je 1 EUR = 26 CZK.
+Dalším příkladem je třeba peněženka, obsahující 2 000 CZK, 100 EUR a 50 USD. Navržené řešení by mohlo umět říct, jaka částka v peněžence je, a to pro libovolnou měnu (např. pomoci metody Wallet.total(String currency)).
