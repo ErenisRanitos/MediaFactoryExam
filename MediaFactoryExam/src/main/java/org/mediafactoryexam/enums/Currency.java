@@ -13,10 +13,6 @@ public enum Currency {
         this.currency = currency;
     }
 
-    public String getCurrency() {
-        return currency;
-    }
-
     public double convert (double amount, Currency outputCurrency) {
         switch (this) {
             case CZK -> {

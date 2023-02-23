@@ -1,9 +1,8 @@
 package org.mediafactoryexam.eshop;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 public class CsobBank implements Bank {
 
@@ -25,5 +24,21 @@ public class CsobBank implements Bank {
     public void deleteWallet(int walletId) {
         List<Wallet> toDelete = wallets.stream().filter(wallet -> wallet.getWalletId() == walletId).toList();
         toDelete.forEach(wallets::remove);
+    }
+
+    @Override
+    public int getWalletCount() {
+        return wallets.size();
+    }
+
+    @Override
+    public List<Wallet> getWallets() {
+        return wallets;
+    }
+
+    @Override
+    public Wallet getWallet(int walletId) {
+        Optional<Wallet> result = wallets.stream().filter(wallet -> wallet.getWalletId() == walletId).findFirst();
+        return result.orElse(null);
     }
 }
