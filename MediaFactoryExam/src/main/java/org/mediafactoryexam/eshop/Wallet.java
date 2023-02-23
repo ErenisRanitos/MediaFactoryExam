@@ -4,10 +4,10 @@ import org.mediafactoryexam.enums.Currency;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class Wallet {
 
+    private int walletId;
     private final Map<Currency, Double> walletAmount;
 
     public Wallet() {
@@ -23,8 +23,17 @@ public class Wallet {
         walletAmount.forEach(this.walletAmount::putIfAbsent);
     }
 
+    public Wallet(int walletId) {
+        walletAmount = new HashMap<>();
+        this.walletId = walletId;
+    }
+
     public Double getAmount (Currency currency) {
         return walletAmount.get(currency);
+    }
+
+    public int getWalletId() {
+        return walletId;
     }
 
     public Double totalAmount (Currency outputCurrency) {
@@ -44,5 +53,13 @@ public class Wallet {
 
     public Double totalAmount (String outputCurrency) {
         return totalAmount(Currency.valueOf(outputCurrency));
+    }
+
+    public void addAmount(double amount, Currency currency) {
+        walletAmount.put(currency, walletAmount.get(currency) + amount);
+    }
+
+    public void addAmount(double amount, String currency) {
+        addAmount(amount, Currency.valueOf(currency));
     }
 }

@@ -4,7 +4,11 @@ public enum Operator {
     ADDITION ("+"),
     SUBTRACTION ("-"),
     MULTIPLICATION ("*"),
-    DIVISION ("/");
+    DIVISION ("/"),
+    GREATER (">"),
+    LOWER ("<"),
+    EQUALS ("="),
+    EXCHANGE ("->");
 
     private String operatorChar;
 
